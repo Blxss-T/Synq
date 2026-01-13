@@ -15,4 +15,7 @@ const io=new Server(server,{
         methods:['GET',]
     }
 
+});
+io.on ('connected',(socket)=>{
+    console.log(`user connected: ${socket.io}`)
 })
