@@ -10,6 +10,7 @@ require ('dotenv').config();
 const app = express();
 app.use(cors);
 app.use (express.json());
+connectDB();
 const server = http.createServer(app);
 const io=new Server(server,{
     cors:{
