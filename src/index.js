@@ -3,6 +3,7 @@ const http = require ('http');
 const cors = require ('cors');
 const {Server}=require  ('socket.io');
 const { disconnect } = require('cluster');
+const connectDB = require('./config/db')
 require ('dotenv').config();
 
 
