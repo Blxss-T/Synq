@@ -2,6 +2,7 @@ const express = require ('express');
 const http = require ('http');
 const cors = require ('cors');
 const {Server}=require  ('socket.io');
+const { disconnect } = require('cluster');
 require ('dotenv').config();
 
 
@@ -17,5 +18,9 @@ const io=new Server(server,{
 
 });
 io.on ('connected',(socket)=>{
-    console.log(`user connected: ${socket.io}`)
+    console.log(`user connected: ${socket.id}`);
+
+    socket.on('disconnect',()=>{
+        console.log(`user disconnected: ${socket.id}`)
+    })
 })
