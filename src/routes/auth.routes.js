@@ -51,9 +51,14 @@ const user = require('../models/user');
         });
 
     }
-    catch(error){
-        res.status(500).json({message:'Server error'});
-    }
+    catch (error) {
+  console.error('REGISTER ERROR 👉', error);
+  res.status(500).json({
+    message: 'Server error',
+    error: error.message
+  });
+}
+
  })
 
  module.exports= router;
