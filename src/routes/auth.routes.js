@@ -37,6 +37,11 @@ const user = require('../models/user');
         if(!isMatch){
             return res.status(400).json({message:'Invalid request'})
         }
+        const token=jwt.sign(
+            {id:user.id},
+            process.env.JWT_SECRET,
+            {expiresIn:'7d'}
+        );
 
     }
  })
