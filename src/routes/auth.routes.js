@@ -20,7 +20,7 @@ const User = require('../models/user');
         res.status(201).json({message:'User registered Successfully'});
     }
     catch(error){
-        res.statu(500)
+        res.status(500).json({message:'Server error'});
     }
 
  })
