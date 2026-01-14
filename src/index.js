@@ -6,6 +6,7 @@ const { disconnect } = require('cluster');
 const connectDB = require('./config/db')
 require ('dotenv').config();
 const authRoutes=require('../src/routes/auth.routes')
+const PORT=process.env.process || 5000;
 
 
 const app = express();
@@ -28,4 +29,6 @@ io.on ('connected',(socket)=>{
         console.log(`user disconnected: ${socket.id}`)
     })
 });
-const PORT=process.env.process
+server.listen(PORT, () => {
+  console.log(`🚀 Server running on port ${PORT}`);
+});
