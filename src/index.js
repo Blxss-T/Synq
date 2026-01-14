@@ -9,7 +9,7 @@ const authRoutes=require('../src/routes/auth.routes')
 
 
 const app = express();
-app.use(authRoutes);
+app.use('/api/auth',authRoutes);
 app.use(cors);
 app.use (express.json());
 connectDB();
