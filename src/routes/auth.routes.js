@@ -31,7 +31,7 @@ const user = require('../models/user');
         const{email,password}=req.body;
         const user =await user.findOne({email})
         if(!user){
-            return
+            return res.status(400).json({message:'Invalid Credentials '})
         }
     }
  })
