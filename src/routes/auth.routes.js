@@ -42,7 +42,17 @@ const user = require('../models/user');
             process.env.JWT_SECRET,
             {expiresIn:'7d'}
         );
+        res.json({
+            token,
+            user:{
+                id:user._id,
+                email:user.email
+            }
+        });
 
+    }
+    catch(error){
+        res.status(500).json({message:'Server error'});
     }
  })
 
