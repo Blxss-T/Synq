@@ -5,9 +5,11 @@ const {Server}=require  ('socket.io');
 const { disconnect } = require('cluster');
 const connectDB = require('./config/db')
 require ('dotenv').config();
+const authRoutes=require('../src/routes/auth.routes')
 
 
 const app = express();
+app.use(authRoutes);
 app.use(cors);
 app.use (express.json());
 connectDB();
