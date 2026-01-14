@@ -1,6 +1,7 @@
 const express= require ('express');
 const bcrypt=require ('bcrypt');
 const User = require('../models/user');
+const jwt = require('jsonwebtoken');
 
  const router=express.Router();
 
@@ -23,5 +24,11 @@ const User = require('../models/user');
         res.status(500).json({message:'Server error'});
     }
 
+ });
+ router.post('/login', async(req,res)=>{
+    try{
+        
+    }
  })
+
  module.exports= router;
