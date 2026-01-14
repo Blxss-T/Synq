@@ -11,7 +11,7 @@ const User = require('../models/user');
         if (existingUser){
             return res.status(400).json({message:'User already exists.'});
         }
-        const hashedPassword= await bcrypt.hash({password,10});
+        const hashedPassword= await bcrypt.hash(password,10);
         const user= new User ({
             email,
             password:hashedPassword
