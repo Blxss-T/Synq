@@ -29,7 +29,7 @@ const user = require('../models/user');
  router.post('/login', async(req,res)=>{
     try{
         const{email,password}=req.body;
-        const user =await user.findOne({email})
+        const user =await User.findOne({email})
         if(!user){
             return res.status(400).json({message:'Invalid Credentials '})
         }
