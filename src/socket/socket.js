@@ -1,3 +1,4 @@
+const { Socket } = require('socket.io');
 const chat = require('../models/chat');
 const Message= require('../models/Message');
 const socketHandler =(io)=>{
@@ -22,3 +23,4 @@ const socketHandler =(io)=>{
                 });
     });
 };
+module.export= socketHandler;

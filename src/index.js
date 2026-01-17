@@ -6,13 +6,14 @@ const { disconnect } = require('cluster');
 const connectDB = require('./config/db')
 require ('dotenv').config();
 const authRoutes=require('../src/routes/auth.routes')
-const PORT=process.env.process || 5000;
-const 
+const PORT=process.env.PORT|| 5000;
+const socket= require('../src/socket/socket');
+
 
 
 const app = express();
 app.use('/api/auth',authRoutes);
-app.use(cors);
+app.use(cors());
 app.use (express.json());
 connectDB();
 const server = http.createServer(app);
