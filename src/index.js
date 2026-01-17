@@ -12,10 +12,13 @@ const socket= require('../src/socket/socket');
 
 
 const app = express();
+//midleware
 app.use('/api/auth',authRoutes);
 app.use(cors());
 app.use (express.json());
+//db connection
 connectDB();
+//server and socket.io
 const server = http.createServer(app);
 const io=new Server(server,{
     cors:{
@@ -24,6 +27,7 @@ const io=new Server(server,{
     }
 
 });
+socketHandler(io);
 io.on ('connection',(socket)=>{
     console.log(`user connected: ${socket.id}`);
 
