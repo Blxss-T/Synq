@@ -7,6 +7,7 @@ const connectDB = require('./config/db')
 require ('dotenv').config();
 const authRoutes=require('../src/routes/auth.routes')
 const PORT=process.env.process || 5000;
+const 
 
 
 const app = express();
