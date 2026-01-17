@@ -7,8 +7,8 @@ const socketHandler =(io)=>{
             console.log(`User joined ${chatId}`)
         });
         socket.on('sendMessage', async(data)=>{
-            const{}
-        })
+            const{ chatId,senderId, content }=data;
+                })
 
     })
 
