@@ -4,7 +4,8 @@ const socketHandler =(io)=>{
         console.log('User connected:', socket.id);
         socket.on('joinChat',(chatId)=>{
             socket.join(chatId);
-            console.log(`User joined ${chatId}`)
+            console.log(`User joined ${chatId}`);
+            
 
         })
 
