@@ -1,2 +1,4 @@
 const Message= require('../models/Message');
-const
+const socketHandler =(io)=>{
+    
+}
