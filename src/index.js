@@ -24,7 +24,7 @@ const io=new Server(server,{
     }
 
 });
-io.on ('connected',(socket)=>{
+io.on ('connection',(socket)=>{
     console.log(`user connected: ${socket.id}`);
 
     socket.on('disconnect',()=>{
