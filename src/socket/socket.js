@@ -15,8 +15,11 @@ const socketHandler =(io)=>{
                 content
 
             });
-            io.to(chatId).emit('receivedMessage', message)
+            io.to(chatId).emit('receivedMessage', message);
                 });
+                socket.on('disconnect',()=>{
+                    
+                })
                 
 
     })
