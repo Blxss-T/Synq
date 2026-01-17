@@ -8,8 +8,8 @@ const socketHandler =(io)=>{
         });
         socket.on('sendMessage', async(data)=>{
             const{ chatId,senderId, content }=data;
-            const message - await Message.create({
-                
+            const message =await Message.create({
+
             })
                 })
 
