@@ -7,7 +7,7 @@ const connectDB = require('./config/db')
 require ('dotenv').config();
 const authRoutes=require('../src/routes/auth.routes')
 const PORT=process.env.PORT|| 5000;
-const socket= require('../src/socket/socket');
+const socketHandler= require('../src/socket/socket');
 
 
 
