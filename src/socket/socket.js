@@ -21,4 +21,4 @@ const socketHandler =(io)=>{
                     console.log('User disconnected:',socket.id); 
                 });
     });
-}
+};
