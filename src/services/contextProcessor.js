@@ -8,6 +8,7 @@ const contextProcessor= async (chatId)=>{
     return {
         messages,
         summary,
+        tasks
 
     }
 
