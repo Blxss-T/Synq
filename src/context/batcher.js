@@ -9,4 +9,5 @@ const batchMessages= async(chatId,limit=20){
     if(!chat){
         throw new Error ('chatId is required');
     }
+    const messages= await Message.find({chat:chatId})
 }
