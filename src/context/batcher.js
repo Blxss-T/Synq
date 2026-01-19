@@ -11,4 +11,6 @@ const batchMessages= async(chatId,limit=20){
     }
     const messages= await Message.find({chat:chatId})
     .sort({createdAt: -1})
+    .limit(limit)
+    .lean();
 }
