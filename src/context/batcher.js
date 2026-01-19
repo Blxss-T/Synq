@@ -14,4 +14,4 @@ const batchMessages= async(chatId,limit=20){
     .limit(limit)
     .lean();
     return messages.reverse();
-}
+};
