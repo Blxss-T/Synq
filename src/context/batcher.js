@@ -13,4 +13,5 @@ const batchMessages= async(chatId,limit=20){
     .sort({createdAt: -1})
     .limit(limit)
     .lean();
+    return messages.reverse();
 }
