@@ -10,7 +10,7 @@ const contextProcessor= async (chatId)=>{
         summary,
         tasks
 
-    }
+    };
 
 
 }
