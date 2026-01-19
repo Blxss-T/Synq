@@ -15,3 +15,4 @@ const batchMessages= async(chatId,limit=20){
     .lean();
     return messages.reverse();
 };
+module.exports= batchMessages;
