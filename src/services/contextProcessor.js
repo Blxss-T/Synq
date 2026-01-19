@@ -3,5 +3,6 @@ const contextProcessor= async (chatId)=>{
         throw new Error('ChatId is required');
     }
     const  messages =[];
+    const sumary =[];
 
 }
