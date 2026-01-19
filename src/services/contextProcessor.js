@@ -5,7 +5,7 @@ const contextProcessor= async (chatId)=>{
         throw new Error('ChatId is required');
     }
     const  messages =await batchMessages(chatId);
-    const sumary =[];
+    const sumary =null;
     const tasks=[];
     return {
         messages,
