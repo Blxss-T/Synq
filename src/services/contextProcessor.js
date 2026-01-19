@@ -1,6 +1,6 @@
 const contextProcessor= async (chatId)=>{
     if(!chatId){
-        throw new Error('ChatId is required')
+        throw new Error('ChatId is required');
     }
 
 }
