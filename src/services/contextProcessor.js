@@ -1,8 +1,10 @@
+const batchMessages = require("../context/batcher");
+
 const contextProcessor= async (chatId)=>{
     if(!chatId){
         throw new Error('ChatId is required');
     }
-    const  messages =await [];
+    const  messages =await batchMessages(chatId);
     const sumary =[];
     const tasks=[];
     return {
