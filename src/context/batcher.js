@@ -7,6 +7,6 @@ const Message= require('../models/Message');
  */
 const batchMessages= async(chatId,limit=20){
     if(!chat){
-        throw new Error ('chatId is required')
+        throw new Error ('chatId is required');
     }
 }
