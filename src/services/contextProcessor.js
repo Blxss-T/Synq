@@ -6,7 +6,8 @@ const contextProcessor= async (chatId)=>{
     const sumary =[];
     const tasks=[];
     return {
-       
+        messages,
+        summary,
 
     }
 
