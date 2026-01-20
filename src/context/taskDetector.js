@@ -25,7 +25,7 @@ const detectTasks= (messages)=>{
          const content= msg.content.toLowerCase();
          const isTask=taskKeywords.some(keyword=>
             content.includes(keyword)
-         )
+         );
        
         
     });
