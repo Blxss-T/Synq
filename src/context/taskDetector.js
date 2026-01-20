@@ -21,6 +21,10 @@ const detectTasks= (messages)=>{
         "don't forget"
     ];
     const tasks=[];
-    
+    messages.array.forEach(msg => {
+       
+        
+    });
+
 
 }
