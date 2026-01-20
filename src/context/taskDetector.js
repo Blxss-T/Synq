@@ -23,6 +23,9 @@ const detectTasks= (messages)=>{
     const tasks=[];
     messages.array.forEach(msg => {
          const content= msg.content.toLowerCase();
+         const isTask=taskKeywords.some(keyword=>
+            content.includes(keyword)
+         )
        
         
     });
