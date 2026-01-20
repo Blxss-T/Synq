@@ -1,5 +1,7 @@
 /**
  * @param {Array} messages
- * @returns {String} sumary
- * 
+ * @returns {String} sumary 
  */
+const summarizeMessages=(messages)=>{
+    
+}
