@@ -10,4 +10,4 @@ const summarizeMessages=(messages)=>{
      const recent = messages.slice(-3).map(msg =>`${msg.sender}: ${msg.content}`);
      return `Recent chat context: ${recent.join(' | ')}`;
 
-}
+};
