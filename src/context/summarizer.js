@@ -7,6 +7,6 @@ const summarizeMessages=(messages)=>{
         return ('no messages to summarize')
     }
 
-     const recent = messages.slice
+     const recent = messages.slice(-3).map(msg =>`${msg.sender}: ${msg.content}`);
 
 }
