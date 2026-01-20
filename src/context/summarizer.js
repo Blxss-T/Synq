@@ -7,6 +7,6 @@ const summarizeMessages=(messages)=>{
         return ('no messages to summarize')
     }
 
-     const 
+     const recent = messages.slice
 
 }
