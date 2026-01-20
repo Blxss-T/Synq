@@ -11,3 +11,4 @@ const summarizeMessages=(messages)=>{
      return `Recent chat context: ${recent.join(' | ')}`;
 
 };
+module.exports=summarizeMessages;
