@@ -19,7 +19,8 @@ const detectTasks= (messages)=>{
         'remember to',
         'don’t forget',
         "don't forget"
-
-    ]
+    ];
+    const tasks=[];
+    
 
 }
