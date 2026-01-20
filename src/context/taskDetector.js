@@ -7,7 +7,19 @@ const detectTasks= (messages)=>{
         return [];
     }
     const taskKeywords=[
-        
+        'need to',
+        'should',
+        'must',
+        'i will',
+        "i'll",
+        'we will',
+        'let’s',
+        'lets',
+        'todo',
+        'remember to',
+        'don’t forget',
+        "don't forget"
+
     ]
 
 }
