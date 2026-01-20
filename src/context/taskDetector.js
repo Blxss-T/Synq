@@ -26,7 +26,14 @@ const detectTasks= (messages)=>{
          const isTask=taskKeywords.some(keyword=>
             content.includes(keyword)
          );
-       
+       if(isTask){
+        tasks.push({
+            text: msg.content,
+            sender: msg.sender,
+            createdAt: msg.createdAt,
+            status: 'pending'
+        })
+       }
         
     });
 
