@@ -11,6 +11,11 @@ const chatSchema = new mongoose.Schema({
     type: String,
     enum: ['project', 'study', 'casual','meeting'],
     default: 'casual'
+  },
+  lastSummary:{
+    type:String,
+    default:null
+
   }
 }, {
   timestamps: true
