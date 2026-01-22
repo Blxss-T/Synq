@@ -24,8 +24,9 @@ const chatSchema = new mongoose.Schema({
         ref:'User'
       },
       status:{
-        
-      }
+        type:String,
+        default:'pending'
+      },
       
     }
   ]
