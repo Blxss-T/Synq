@@ -29,4 +29,4 @@ const socketHandler =(io)=>{
                 });
     });
 };
-module.export= socketHandler;
+module.exports= socketHandler;
