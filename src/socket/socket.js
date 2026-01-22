@@ -10,7 +10,8 @@ const socketHandler =(io)=>{
             console.log(`User joined ${chatId}`)
         });
         socket.on('sendMessage', async(data)=>{
-            const{ chatId,senderId, content }=data;
+            try{
+                  const{ chatId,senderId, content }=data;
             const message =await Message.create({
                 chat:chatId,
                 sender: senderId,
@@ -23,10 +24,17 @@ const socketHandler =(io)=>{
                 message,
                 context,
             });
-                });
+                
+            }
+            catch(error){
+                console.log('sendMessage error:',error.message);
+            }
+            });
                 socket.on('disconnect',()=>{
                     console.log('User disconnected:',socket.id); 
                 });
+
+          
     });
 };
 module.exports= socketHandler;
