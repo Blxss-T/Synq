@@ -27,6 +27,10 @@ const chatSchema = new mongoose.Schema({
         type:String,
         default:'pending'
       },
+      createdAt:{
+        type:Date,
+        
+      }
       
     }
   ]
