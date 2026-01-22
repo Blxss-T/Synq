@@ -17,8 +17,12 @@ const socketHandler =(io)=>{
                 content
 
             });
-            const 
-            io.to(chatId).emit('receivedMessage', message);
+            const context =await contextProcessor(chatId);
+            
+            io.to(chatId).emit('receivedMessage', {
+                message,
+                context,
+            });
                 });
                 socket.on('disconnect',()=>{
                     console.log('User disconnected:',socket.id); 
