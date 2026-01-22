@@ -18,6 +18,10 @@ const chatSchema = new mongoose.Schema({
   },
   tasks:[
     {
+      text:String,
+      sender:{
+        type:mongoose.Schema.Types.ObjectId,
+      }
       
     }
   ]
