@@ -15,8 +15,12 @@ const chatSchema = new mongoose.Schema({
   lastSummary:{
     type:String,
     default:null
-
-  }
+  },
+  tasks:[
+    {
+      
+    }
+  ]
 }, {
   timestamps: true
 });
