@@ -17,6 +17,7 @@ const socketHandler =(io)=>{
                 content
 
             });
+            const 
             io.to(chatId).emit('receivedMessage', message);
                 });
                 socket.on('disconnect',()=>{
