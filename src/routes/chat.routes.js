@@ -6,6 +6,7 @@ const router =express.Router();
 router.get('/:chatId/context',async (req,res)=>{
     try{
         const {chatId} = req.params;
+        const chat= await Chat.findById(chatId).select('lastSummary tasks');
     }
 })
 
