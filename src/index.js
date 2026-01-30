@@ -8,7 +8,7 @@ require ('dotenv').config();
 const authRoutes=require('../src/routes/auth.routes')
 const PORT=process.env.PORT|| 5000;
 const socketHandler= require('../src/socket/socket');
-const chatRoutes
+const chatRoutes=require ('./routes/chat.routes')
 
 
 
