@@ -15,6 +15,7 @@ const chatRoutes=require ('./routes/chat.routes')
 const app = express();
 //midleware
 app.use('/api/auth',authRoutes);
+app.use('/api/chats', chatRoutes);
 app.use(cors());
 app.use (express.json());
 //db connection
