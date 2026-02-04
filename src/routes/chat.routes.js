@@ -8,7 +8,7 @@ router.get('/:chatId/context',async (req,res)=>{
         const {chatId} = req.params;
         const chat= await Chat.findById(chatId).select('lastSummary tasks');
         if (!chat){
-            return res.status(404).json({message:'Chat n'})
+            return res.status(404).json({message:'Chat not found'})
         }
          res.json({
       summary: chat.lastSummary,
@@ -18,6 +18,7 @@ router.get('/:chatId/context',async (req,res)=>{
     res.status(500).json({ message: error.message });
   }
 });
+
 router.patch('/:chatId/tasks/:taskId', async (req, res) => {
   try {
     const { chatId, taskId } = req.params;
@@ -47,5 +48,4 @@ router.patch('/:chatId/tasks/:taskId', async (req, res) => {
   }
 });
 
-
-
+module.exports = router; 
