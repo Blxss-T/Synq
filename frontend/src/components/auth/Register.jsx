@@ -145,15 +145,15 @@ const Register = () => {
 
                     {/* Layer 2: Main Background Image (Asset) */}
                     <ParallaxItem strength={5} className="relative z-10">
-                        <div className="w-[400px] h-[500px] rounded-3xl overflow-hidden shadow-2xl relative border border-white/40 group">
+                        <div className="w-[400px] h-[500px] rounded-3xl overflow-hidden shadow-2xl relative border border-white/40 group transition-all duration-500 hover:border-purple-400 hover:shadow-[0_0_30px_rgba(168,85,247,0.4)]">
                             {/* Use provided illustration or a different crop/style if available. 
                                  Reusing the same image but maybe with a different overlay for variety. */}
                             <img
                                 src={illustrationImg}
                                 alt="Team Sync"
-                                className="w-full h-full object-cover opacity-80 mix-blend-overlay transition-transform duration-700 hover:scale-105"
+                                className="w-full h-full object-cover opacity-80 mix-blend-overlay transition-all duration-700 group-hover:opacity-90"
                             />
-                            <div className="absolute inset-0 flex flex-col items-center justify-center">
+                            <div className="absolute inset-0 flex flex-col items-center justify-center transition-all duration-500 group-hover:bg-purple-500/10">
                                 <h3 className="text-white text-3xl font-bold mt-4 shadow-black drop-shadow-lg p-4 text-center">Join the Community</h3>
                             </div>
                         </div>
@@ -163,21 +163,21 @@ const Register = () => {
 
                     {/* Central Hub - slightly faster than BG */}
                     <ParallaxItem strength={15} className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
-                        <div className="w-32 h-32 bg-white/80 backdrop-blur-md rounded-full shadow-xl flex items-center justify-center animate-pulse">
+                        <div className="w-32 h-32 bg-white/80 backdrop-blur-md rounded-full shadow-xl flex items-center justify-center animate-pulse transition-all duration-300 hover:bg-purple-100/90 hover:shadow-[0_0_20px_rgba(168,85,247,0.5)]">
                             <span className="text-4xl">✨</span>
                         </div>
                     </ParallaxItem>
 
                     {/* Avatar 1 Top Left */}
                     <ParallaxItem strength={30} className="top-[25%] left-[20%] z-20">
-                        <div className="w-16 h-16 bg-white p-1 rounded-full shadow-lg transform -rotate-12 hover:scale-110 transition-transform">
-                            <div className="w-full h-full bg-blue-100 rounded-full flex items-center justify-center text-xl">👨‍💻</div>
+                        <div className="w-16 h-16 bg-white p-1 rounded-full shadow-lg transform -rotate-12 transition-all duration-300 hover:bg-blue-50 hover:shadow-[0_0_15px_rgba(59,130,246,0.5)]">
+                            <div className="w-full h-full bg-blue-100 rounded-full flex items-center justify-center text-xl transition-colors duration-300 hover:bg-blue-200">👨‍💻</div>
                         </div>
                     </ParallaxItem>
 
                     {/* Chat Bubble Top Right */}
                     <ParallaxItem strength={-20} className="top-[30%] right-[20%] z-20">
-                        <div className="bg-white px-4 py-2 rounded-xl rounded-bl-none shadow-md border border-purple-100 transform rotate-6">
+                        <div className="bg-white px-4 py-2 rounded-xl rounded-bl-none shadow-md border border-purple-100 transform rotate-6 transition-all duration-300 hover:bg-purple-50 hover:border-purple-300">
                             <span className="text-xs font-bold text-gray-600">Hello! 👋</span>
                         </div>
                     </ParallaxItem>

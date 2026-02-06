@@ -157,13 +157,13 @@ const Login = () => {
                     {/* For minimalism, we might just use the illustration as a centered focus or subtle background. 
                          Let's keep the illustration card as the prominent central element. */}
                     <ParallaxItem strength={10} className="relative z-10">
-                        <div className="w-[400px] h-[500px] rounded-3xl overflow-hidden shadow-2xl relative border border-white/10 group">
+                        <div className="w-[400px] h-[500px] rounded-3xl overflow-hidden shadow-2xl relative border border-white/10 group transition-all duration-500 hover:border-brand-purple/50 hover:shadow-[0_0_30px_rgba(139,92,246,0.3)]">
                             <img
                                 src={illustrationImg}
                                 alt="Modern Workspace"
-                                className="w-full h-full object-cover opacity-90 transition-transform duration-700 hover:scale-105"
+                                className="w-full h-full object-cover opacity-90 transition-all duration-700 group-hover:opacity-100"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-8">
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-8 transition-all duration-500 group-hover:from-brand-purple/40 group-hover:via-black/30">
                                 <h3 className="text-white text-3xl font-bold mb-2">Focus on what matters</h3>
                                 <p className="text-gray-300 text-sm">Automate the busywork and unleash your creativity.</p>
                             </div>
@@ -173,7 +173,7 @@ const Login = () => {
                     {/* Layer 3: Floating Elements (Foreground, Faster) */}
                     {/* Glass Card Top Left */}
                     <ParallaxItem strength={25} className="top-[20%] left-[15%] z-20">
-                        <div className="w-48 bg-glass-bg border border-glass-border backdrop-blur-xl rounded-2xl p-4 shadow-xl transform -rotate-6 transition-transform hover:scale-110">
+                        <div className="w-48 bg-glass-bg border border-glass-border backdrop-blur-xl rounded-2xl p-4 shadow-xl transform -rotate-6 transition-all duration-300 hover:bg-brand-purple/20 hover:border-brand-purple/50">
                             <div className="flex items-center space-x-3 mb-3">
                                 <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-brand-purple to-brand-blue"></div>
                                 <div className="h-2 bg-white/20 rounded w-20"></div>
