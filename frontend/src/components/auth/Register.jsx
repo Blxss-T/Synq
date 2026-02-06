@@ -3,6 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import Input from '../ui/Input';
 import Button from '../ui/Button';
 import api from '../../services/api';
+import ShuffleCard from '../ui/ShuffleCard';
+import illustrationImg from '../../assets/illustration.jpg';
 
 // Icons
 const GoogleIcon = () => (
@@ -133,62 +135,67 @@ const Register = () => {
 
             {/* RIGHT SIDE - HERO */}
             <div className="hidden lg:flex w-1/2 relative bg-[#F8F3F5] items-center justify-center p-12 overflow-hidden">
-                <div className="relative w-full max-w-lg aspect-square flex flex-col items-center justify-center">
-
-                    {/* Social/Connect Illustration Scene */}
-                    <div className="relative w-full h-96">
-
-                        {/* Central Connection Hub */}
-                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-white rounded-full shadow-xl flex items-center justify-center z-10 animate-pulse">
-                            <div className="w-32 h-32 bg-purple-50 rounded-full flex items-center justify-center">
-                                <div className="text-4xl">✨</div>
+                <div className="relative w-full max-w-lg aspect-square">
+                    <ShuffleCard interval={6000}>
+                        {/* Slide 1: Image (Connecting) */}
+                        <div className="w-full h-full rounded-3xl overflow-hidden shadow-2xl relative border border-white/10 group bg-purple-900">
+                            {/* Reusing illustration but filtered for variation, or just standard */}
+                            <img
+                                src={illustrationImg}
+                                alt="Team Sync"
+                                className="w-full h-full object-cover opacity-80 mix-blend-overlay group-hover:scale-110 transition-transform duration-700"
+                            />
+                            <div className="absolute inset-0 flex flex-col items-center justify-center">
+                                <div className="text-6xl animate-bounce">🚀</div>
+                                <h3 className="text-white text-3xl font-bold mt-4 shadow-black drop-shadow-lg">Let's Go!</h3>
                             </div>
                         </div>
 
-                        {/* Orbiting User Avatars (CSS Shapes) */}
-                        {/* Avatar 1 */}
-                        <div className="absolute top-10 left-1/4 w-16 h-16 bg-white p-1 rounded-full shadow-lg animate-float-slow">
-                            <div className="w-full h-full bg-blue-100 rounded-full flex items-center justify-center text-xl">👨‍💻</div>
-                        </div>
-                        {/* Chat Bubble 1 */}
-                        <div className="absolute top-6 left-1/2 bg-white px-4 py-2 rounded-xl rounded-bl-none shadow-md border border-purple-100 animate-float-medium delay-700">
-                            <span className="text-xs font-bold text-gray-600">Hello! 👋</span>
+                        {/* Slide 2: Social Scene (CSS) */}
+                        <div className="w-full h-full bg-[#F8F3F5] rounded-3xl border border-purple-100 relative overflow-hidden flex flex-col items-center justify-center">
+                            <div className="relative w-full h-full">
+                                {/* Central Connection Hub */}
+                                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-white rounded-full shadow-xl flex items-center justify-center z-10 animate-pulse">
+                                    <div className="w-32 h-32 bg-purple-50 rounded-full flex items-center justify-center">
+                                        <div className="text-4xl">✨</div>
+                                    </div>
+                                </div>
+
+                                {/* Orbiting User Avatars (CSS Shapes) */}
+                                <div className="absolute top-10 left-1/4 w-16 h-16 bg-white p-1 rounded-full shadow-lg animate-float-slow">
+                                    <div className="w-full h-full bg-blue-100 rounded-full flex items-center justify-center text-xl">👨‍💻</div>
+                                </div>
+
+                                <div className="absolute bottom-20 right-10 w-20 h-20 bg-white p-1 rounded-full shadow-lg animate-float-medium delay-100">
+                                    <div className="w-full h-full bg-pink-100 rounded-full flex items-center justify-center text-2xl">👩‍🎨</div>
+                                </div>
+
+                                <div className="absolute bottom-0 left-10 w-14 h-14 bg-white p-1 rounded-full shadow-lg animate-float-fast delay-200">
+                                    <div className="w-full h-full bg-green-100 rounded-full flex items-center justify-center text-lg">🦸‍♂️</div>
+                                </div>
+
+                                {/* Background blobs */}
+                                <div className="absolute -top-10 -right-10 w-64 h-64 bg-purple-200/30 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
+                                <div className="absolute -bottom-10 -left-10 w-64 h-64 bg-pink-200/30 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
+                            </div>
                         </div>
 
-                        {/* Avatar 2 */}
-                        <div className="absolute bottom-20 right-10 w-20 h-20 bg-white p-1 rounded-full shadow-lg animate-float-medium delay-100">
-                            <div className="w-full h-full bg-pink-100 rounded-full flex items-center justify-center text-2xl">👩‍🎨</div>
-                        </div>
-                        {/* Chat Bubble 2 */}
-                        <div className="absolute bottom-36 right-0 bg-white px-4 py-2 rounded-xl rounded-br-none shadow-md border border-pink-100 animate-float-slow delay-500">
-                            <span className="text-xs font-bold text-gray-600">Great work! 🚀</span>
+                        {/* Slide 3: Quote/Message */}
+                        <div className="w-full h-full bg-white rounded-3xl border border-gray-100 relative overflow-hidden flex items-center justify-center p-8 shadow-inner">
+                            <div className="text-center">
+                                <div className="text-6xl mb-4 text-purple-500">❝</div>
+                                <h3 className="text-2xl font-bold text-gray-800 leading-tight">The best way to predict the future is to create it.</h3>
+                                <div className="mt-6 flex items-center justify-center space-x-3">
+                                    <div className="w-10 h-10 bg-gray-200 rounded-full"></div>
+                                    <div className="text-left">
+                                        <div className="text-sm font-bold text-black">Synq Team</div>
+                                        <div className="text-xs text-gray-500">Productivity Experts</div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
-                        {/* Avatar 3 */}
-                        <div className="absolute bottom-0 left-10 w-14 h-14 bg-white p-1 rounded-full shadow-lg animate-float-fast delay-200">
-                            <div className="w-full h-full bg-green-100 rounded-full flex items-center justify-center text-lg">🦸‍♂️</div>
-                        </div>
-
-                        {/* Decorative Lines/Paths connecting them */}
-                        <svg className="absolute top-0 left-0 w-full h-full -z-10 opacity-30 pointer-events-none">
-                            <path d="M150 100 Q 250 200 350 150" fill="none" stroke="#d8b4fe" strokeWidth="2" strokeDasharray="5,5" />
-                            <path d="M100 300 Q 250 200 400 300" fill="none" stroke="#f9a8d4" strokeWidth="2" strokeDasharray="5,5" />
-                        </svg>
-
-                        {/* Background blobs */}
-                        <div className="absolute -top-10 -right-10 w-64 h-64 bg-purple-200/30 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
-                        <div className="absolute -bottom-10 -left-10 w-64 h-64 bg-pink-200/30 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
-                    </div>
-
-                    <div className="mt-12 text-center max-w-md relative z-10">
-                        <h2 className="text-2xl font-bold text-black mb-2">Connect with your team instantly</h2>
-                        <p className="text-gray-500 text-sm"> Collaborate, share, and innovate together in one seamless platform.</p>
-                        <div className="flex justify-center space-x-1 mt-6">
-                            <div className="w-2 h-2 rounded-full bg-purple-400 animate-bounce"></div>
-                            <div className="w-2 h-2 rounded-full bg-purple-400 animate-bounce delay-100"></div>
-                            <div className="w-2 h-2 rounded-full bg-purple-400 animate-bounce delay-200"></div>
-                        </div>
-                    </div>
+                    </ShuffleCard>
                 </div>
             </div>
         </div>

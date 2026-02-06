@@ -3,6 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import Input from '../ui/Input';
 import Button from '../ui/Button';
 import api from '../../services/api';
+import ShuffleCard from '../ui/ShuffleCard';
+import illustrationImg from '../../assets/illustration.jpg';
 
 // Icons
 const GoogleIcon = () => (
@@ -77,7 +79,7 @@ const Login = () => {
                         <Input
                             name="email"
                             type="email"
-                            placeholder="Username"
+                            placeholder="Email Address"
                             value={formData.email}
                             onChange={handleChange}
                             variant="light"
@@ -141,57 +143,71 @@ const Login = () => {
                 </div>
             </div>
 
-            {/* RIGHT SIDE - ILLUSTRATION */}
-            <div className="hidden lg:flex w-1/2 relative bg-[#F3F8F2] items-center justify-center p-12">
-                <div className="relative w-full max-w-lg aspect-square flex flex-col items-center justify-center">
-
-                    {/* Abstract Representation of the Illustration */}
-                    <div className="relative w-full h-80">
-                        {/* Meditation Character Placeholder */}
-                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64">
-                            {/* Aura/Bg circles */}
-                            <div className="absolute top-0 left-0 w-full h-full border-2 border-green-200 rounded-full animate-pulse"></div>
-                            <div className="absolute top-4 left-4 w-56 h-56 border border-green-300 rounded-full opacity-50"></div>
-
-                            {/* Simple CSS Character (Sitting pose) */}
-                            <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-48 h-40 bg-white rounded-3xl border-2 border-black/80 flex items-center justify-center overflow-hidden z-10 shadow-lg">
-                                {/* Body */}
-                                <div className="absolute bottom-0 w-32 h-20 bg-green-100 rounded-t-full border-t-2 border-x-2 border-black/80"></div>
-                                {/* Head */}
-                                <div className="absolute top-6 w-16 h-16 bg-white border-2 border-black/80 rounded-full z-20"></div>
+            {/* RIGHT SIDE - HERO */}
+            <div className="hidden lg:flex w-1/2 relative bg-gradient-to-br from-brand-dark to-[#0f172a] items-center justify-center p-12 overflow-hidden">
+                <div className="relative w-full max-w-lg aspect-square">
+                    <ShuffleCard interval={5000}>
+                        {/* Slide 1: Main Illustration (Asset) */}
+                        <div className="w-full h-full rounded-3xl overflow-hidden shadow-2xl relative border border-white/10 group">
+                            <img
+                                src={illustrationImg}
+                                alt="Modern Workspace"
+                                className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-8">
+                                <h3 className="text-white text-2xl font-bold mb-2">Focus on what matters</h3>
+                                <p className="text-gray-300 text-sm">Automate the busywork and unleash your creativity.</p>
                             </div>
                         </div>
 
-                        {/* Floating elements */}
-                        <div className="absolute top-10 left-10 w-16 h-16 bg-white rounded-full border-2 border-black/80 overflow-hidden shadow-md flex items-center justify-center animate-bounce duration-[3000ms]">
-                            <div className="w-8 h-8 rounded-full bg-gray-200"></div>
-                        </div>
+                        {/* Slide 2: CSS 3D Glass Composition */}
+                        <div className="w-full h-full bg-[#1a1a2e] rounded-3xl border border-white/5 relative overflow-hidden flex items-center justify-center">
+                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-brand-purple/20 rounded-full blur-3xl animate-pulse"></div>
 
-                        <div className="absolute bottom-20 right-0 w-12 h-12 bg-white rounded-full border-2 border-black/80 overflow-hidden shadow-md flex items-center justify-center animate-bounce duration-[4000ms]">
-                            <div className="w-6 h-6 rounded-full bg-gray-200"></div>
-                        </div>
+                            {/* Glass Card 1 */}
+                            <div className="absolute top-1/4 left-1/4 w-48 h-64 bg-glass-bg border border-glass-border backdrop-blur-xl rounded-2xl p-6 transform -rotate-12 shadow-2xl">
+                                <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-brand-purple to-brand-blue mb-4"></div>
+                                <div className="h-4 bg-white/10 rounded w-3/4 mb-2"></div>
+                                <div className="h-4 bg-white/5 rounded w-1/2"></div>
+                            </div>
 
-                        {/* "Canva Design" Card */}
-                        <div className="absolute bottom-10 left-0 bg-white p-4 rounded-3xl border-2 border-gray-100 shadow-xl w-48 animate-float-slow">
-                            <h3 className="font-bold text-black text-sm">Canva Design</h3>
-                            <p className="text-xs text-gray-500 mb-2">10 Task</p>
-                            <div className="flex items-center justify-between">
-                                <span className="text-xs border border-gray-200 rounded-full px-2 py-1">Design</span>
-                                <div className="relative w-8 h-8 flex items-center justify-center text-[10px] font-bold text-green-600 border-2 border-green-400 rounded-full">
-                                    84%
+                            {/* Glass Card 2 */}
+                            <div className="absolute bottom-1/4 right-1/4 w-56 h-40 bg-glass-bg border border-glass-border backdrop-blur-xl rounded-2xl p-6 transform rotate-6 shadow-2xl box-border">
+                                <div className="flex items-center space-x-3 mb-4">
+                                    <div className="w-8 h-8 rounded-full bg-brand-pink"></div>
+                                    <div className="h-3 bg-white/10 rounded w-24"></div>
+                                </div>
+                                <div className="h-2 bg-brand-purple/50 rounded-full w-full">
+                                    <div className="h-full bg-brand-purple rounded-full w-2/3"></div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div className="mt-12 text-center max-w-md">
-                        <h2 className="text-2xl font-bold text-black mb-2">Make your work easier and organized with Synq</h2>
-                        <div className="flex justify-center space-x-2 mt-4">
-                            <div className="w-2 h-2 rounded-full bg-gray-300"></div>
-                            <div className="w-6 h-2 rounded-full bg-black"></div>
-                            <div className="w-2 h-2 rounded-full bg-gray-300"></div>
+                        {/* Slide 3: Task Mockup */}
+                        <div className="w-full h-full bg-[#F3F8F2] rounded-3xl border border-green-100 relative overflow-hidden flex flex-col items-center justify-center p-8">
+                            <div className="relative w-full h-80 flex items-center justify-center">
+                                {/* "Canva Design" Card Big */}
+                                <div className="bg-white p-6 rounded-3xl border-2 border-gray-100 shadow-xl w-64 animate-float-slow">
+                                    <h3 className="font-bold text-black text-lg mb-1">Project Launch</h3>
+                                    <p className="text-sm text-gray-500 mb-4">12 Pending Tasks</p>
+                                    <div className="flex items-center justify-between">
+                                        <div className="flex -space-x-2">
+                                            <div className="w-8 h-8 rounded-full bg-blue-400 border-2 border-white"></div>
+                                            <div className="w-8 h-8 rounded-full bg-purple-400 border-2 border-white"></div>
+                                            <div className="w-8 h-8 rounded-full bg-gray-200 border-2 border-white flex items-center justify-center text-[10px] text-gray-600 font-bold">+3</div>
+                                        </div>
+                                        <div className="relative w-10 h-10 flex items-center justify-center text-xs font-bold text-green-600 border-2 border-green-400 rounded-full">
+                                            92%
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="mt-8 text-center text-black">
+                                <h3 className="font-bold text-xl">Stay Organized</h3>
+                                <p className="text-gray-500 text-sm mt-1">Track every update in real-time.</p>
+                            </div>
                         </div>
-                    </div>
+                    </ShuffleCard>
                 </div>
             </div>
         </div>
