@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import Input from '../ui/Input';
 import Button from '../ui/Button';
 import api from '../../services/api';
-import ShuffleCard from '../ui/ShuffleCard';
+import { MouseParallaxContainer, ParallaxItem } from '../ui/MouseParallax';
 import illustrationImg from '../../assets/illustration.jpg';
 
 // Icons
@@ -144,71 +144,66 @@ const Login = () => {
             </div>
 
             {/* RIGHT SIDE - HERO */}
-            <div className="hidden lg:flex w-1/2 relative bg-gradient-to-br from-brand-dark to-[#0f172a] items-center justify-center p-12 overflow-hidden">
-                <div className="relative w-full max-w-lg aspect-square">
-                    <ShuffleCard interval={5000}>
-                        {/* Slide 1: Main Illustration (Asset) */}
-                        <div className="w-full h-full rounded-3xl overflow-hidden shadow-2xl relative border border-white/10 group">
+            <div className="hidden lg:flex w-1/2 relative bg-gradient-to-br from-brand-dark to-[#0f172a] items-center justify-center overflow-hidden">
+                <MouseParallaxContainer className="w-full h-full flex items-center justify-center">
+
+                    {/* Layer 1: Background Elements (Slowest) */}
+                    <ParallaxItem strength={-5} className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full">
+                        <div className="absolute top-0 right-0 w-96 h-96 bg-brand-purple/20 rounded-full blur-[100px] mix-blend-screen"></div>
+                        <div className="absolute bottom-0 left-0 w-96 h-96 bg-brand-pink/10 rounded-full blur-[80px] mix-blend-screen"></div>
+                    </ParallaxItem>
+
+                    {/* Layer 2: Main Background Image (Static or very slow) */}
+                    {/* For minimalism, we might just use the illustration as a centered focus or subtle background. 
+                         Let's keep the illustration card as the prominent central element. */}
+                    <ParallaxItem strength={10} className="relative z-10">
+                        <div className="w-[400px] h-[500px] rounded-3xl overflow-hidden shadow-2xl relative border border-white/10 group">
                             <img
                                 src={illustrationImg}
                                 alt="Modern Workspace"
-                                className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                                className="w-full h-full object-cover opacity-90 transition-transform duration-700 hover:scale-105"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-8">
-                                <h3 className="text-white text-2xl font-bold mb-2">Focus on what matters</h3>
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-8">
+                                <h3 className="text-white text-3xl font-bold mb-2">Focus on what matters</h3>
                                 <p className="text-gray-300 text-sm">Automate the busywork and unleash your creativity.</p>
                             </div>
                         </div>
+                    </ParallaxItem>
 
-                        {/* Slide 2: CSS 3D Glass Composition */}
-                        <div className="w-full h-full bg-[#1a1a2e] rounded-3xl border border-white/5 relative overflow-hidden flex items-center justify-center">
-                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-brand-purple/20 rounded-full blur-3xl animate-pulse"></div>
-
-                            {/* Glass Card 1 */}
-                            <div className="absolute top-1/4 left-1/4 w-48 h-64 bg-glass-bg border border-glass-border backdrop-blur-xl rounded-2xl p-6 transform -rotate-12 shadow-2xl">
-                                <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-brand-purple to-brand-blue mb-4"></div>
-                                <div className="h-4 bg-white/10 rounded w-3/4 mb-2"></div>
-                                <div className="h-4 bg-white/5 rounded w-1/2"></div>
+                    {/* Layer 3: Floating Elements (Foreground, Faster) */}
+                    {/* Glass Card Top Left */}
+                    <ParallaxItem strength={25} className="top-[20%] left-[15%] z-20">
+                        <div className="w-48 bg-glass-bg border border-glass-border backdrop-blur-xl rounded-2xl p-4 shadow-xl transform -rotate-6 transition-transform hover:scale-110">
+                            <div className="flex items-center space-x-3 mb-3">
+                                <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-brand-purple to-brand-blue"></div>
+                                <div className="h-2 bg-white/20 rounded w-20"></div>
                             </div>
-
-                            {/* Glass Card 2 */}
-                            <div className="absolute bottom-1/4 right-1/4 w-56 h-40 bg-glass-bg border border-glass-border backdrop-blur-xl rounded-2xl p-6 transform rotate-6 shadow-2xl box-border">
-                                <div className="flex items-center space-x-3 mb-4">
-                                    <div className="w-8 h-8 rounded-full bg-brand-pink"></div>
-                                    <div className="h-3 bg-white/10 rounded w-24"></div>
-                                </div>
-                                <div className="h-2 bg-brand-purple/50 rounded-full w-full">
-                                    <div className="h-full bg-brand-purple rounded-full w-2/3"></div>
-                                </div>
+                            <div className="space-y-2">
+                                <div className="h-2 bg-white/10 rounded w-full"></div>
+                                <div className="h-2 bg-white/10 rounded w-2/3"></div>
                             </div>
                         </div>
+                    </ParallaxItem>
 
-                        {/* Slide 3: Task Mockup */}
-                        <div className="w-full h-full bg-[#F3F8F2] rounded-3xl border border-green-100 relative overflow-hidden flex flex-col items-center justify-center p-8">
-                            <div className="relative w-full h-80 flex items-center justify-center">
-                                {/* "Canva Design" Card Big */}
-                                <div className="bg-white p-6 rounded-3xl border-2 border-gray-100 shadow-xl w-64 animate-float-slow">
-                                    <h3 className="font-bold text-black text-lg mb-1">Project Launch</h3>
-                                    <p className="text-sm text-gray-500 mb-4">12 Pending Tasks</p>
-                                    <div className="flex items-center justify-between">
-                                        <div className="flex -space-x-2">
-                                            <div className="w-8 h-8 rounded-full bg-blue-400 border-2 border-white"></div>
-                                            <div className="w-8 h-8 rounded-full bg-purple-400 border-2 border-white"></div>
-                                            <div className="w-8 h-8 rounded-full bg-gray-200 border-2 border-white flex items-center justify-center text-[10px] text-gray-600 font-bold">+3</div>
-                                        </div>
-                                        <div className="relative w-10 h-10 flex items-center justify-center text-xs font-bold text-green-600 border-2 border-green-400 rounded-full">
-                                            92%
-                                        </div>
-                                    </div>
-                                </div>
+                    {/* Task Success Card Bottom Right */}
+                    <ParallaxItem strength={-15} className="bottom-[25%] right-[15%] z-20">
+                        <div className="w-40 bg-white p-4 rounded-2xl shadow-2xl transform rotate-6 animate-float-slow">
+                            <div className="flex items-center justify-between mb-2">
+                                <span className="text-xs font-bold text-gray-400">Task Complete</span>
+                                <div className="w-4 h-4 rounded-full bg-green-100 flex items-center justify-center text-[10px] text-green-600">✓</div>
                             </div>
-                            <div className="mt-8 text-center text-black">
-                                <h3 className="font-bold text-xl">Stay Organized</h3>
-                                <p className="text-gray-500 text-sm mt-1">Track every update in real-time.</p>
+                            <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
+                                <div className="h-full bg-green-500 w-full rounded-full"></div>
                             </div>
                         </div>
-                    </ShuffleCard>
-                </div>
+                    </ParallaxItem>
+
+                    {/* Decorative Circle */}
+                    <ParallaxItem strength={40} className="top-[15%] right-[20%] z-0">
+                        <div className="w-16 h-16 rounded-full border-2 border-white/10 opacity-50"></div>
+                    </ParallaxItem>
+
+                </MouseParallaxContainer>
             </div>
         </div>
     );
