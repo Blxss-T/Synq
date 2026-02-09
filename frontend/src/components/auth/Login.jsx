@@ -58,10 +58,67 @@ const Login = () => {
 
     return (
         <div className="min-h-screen flex flex-col lg:flex-row bg-white overflow-hidden font-sans">
-            {/* LEFT SIDE - FORM */}
+            {/* LEFT SIDE - HERO */}
+            <div className="hidden lg:flex w-1/2 relative bg-gradient-to-br from-brand-dark to-[#0f172a] items-center justify-center overflow-hidden">
+                <MouseParallaxContainer className="w-full h-full flex items-center justify-center">
+
+                    {/* Layer 1: Background Elements (Slowest) */}
+                    <ParallaxItem strength={-5} className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full">
+                        <div className="absolute top-0 right-0 w-96 h-96 bg-brand-purple/20 rounded-full blur-[100px] mix-blend-screen"></div>
+                        <div className="absolute bottom-0 left-0 w-96 h-96 bg-brand-pink/10 rounded-full blur-[80px] mix-blend-screen"></div>
+                    </ParallaxItem>
+
+                    {/* Layer 2: Main Background Image */}
+                    <ParallaxItem strength={10} className="relative z-10">
+                        <div className="w-[400px] h-[500px] rounded-3xl overflow-hidden shadow-2xl relative border border-white/10 group transition-all duration-500 hover:border-brand-purple/50 hover:shadow-[0_0_30px_rgba(139,92,246,0.3)]">
+                            <img
+                                src={illustrationImg}
+                                alt="Modern Workspace"
+                                className="w-full h-full object-cover opacity-90 transition-all duration-700 group-hover:opacity-100"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-8 transition-all duration-500 group-hover:from-brand-purple/40 group-hover:via-black/30">
+                                <h3 className="text-white text-3xl font-bold mb-2">Focus on what matters</h3>
+                                <p className="text-gray-300 text-sm">Automate the busywork and unleash your creativity.</p>
+                            </div>
+                        </div>
+                    </ParallaxItem>
+
+                    {/* Layer 3: Floating Elements */}
+                    <ParallaxItem strength={25} className="top-[20%] left-[15%] z-20">
+                        <div className="w-48 bg-glass-bg border border-glass-border backdrop-blur-xl rounded-2xl p-4 shadow-xl transform -rotate-6 transition-all duration-300 hover:bg-brand-purple/20 hover:border-brand-purple/50">
+                            <div className="flex items-center space-x-3 mb-3">
+                                <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-brand-purple to-brand-blue"></div>
+                                <div className="h-2 bg-white/20 rounded w-20"></div>
+                            </div>
+                            <div className="space-y-2">
+                                <div className="h-2 bg-white/10 rounded w-full"></div>
+                                <div className="h-2 bg-white/10 rounded w-2/3"></div>
+                            </div>
+                        </div>
+                    </ParallaxItem>
+
+                    <ParallaxItem strength={-15} className="bottom-[25%] right-[15%] z-20">
+                        <div className="w-40 bg-white p-4 rounded-2xl shadow-2xl transform rotate-6 animate-float-slow">
+                            <div className="flex items-center justify-between mb-2">
+                                <span className="text-xs font-bold text-gray-400">Task Complete</span>
+                                <div className="w-4 h-4 rounded-full bg-green-100 flex items-center justify-center text-[10px] text-green-600">✓</div>
+                            </div>
+                            <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
+                                <div className="h-full bg-green-500 w-full rounded-full"></div>
+                            </div>
+                        </div>
+                    </ParallaxItem>
+
+                    <ParallaxItem strength={40} className="top-[15%] right-[20%] z-0">
+                        <div className="w-16 h-16 rounded-full border-2 border-white/10 opacity-50"></div>
+                    </ParallaxItem>
+
+                </MouseParallaxContainer>
+            </div>
+
+            {/* RIGHT SIDE - FORM */}
             <div className="w-full lg:w-1/2 flex items-center justify-center p-8 lg:p-16 relative z-10 bg-white">
                 <div className="w-full max-w-md">
-                    {/* Header */}
                     <div className="mb-10">
                         <h1 className="text-4xl lg:text-5xl font-bold text-black mb-4">Welcome back!</h1>
                         <p className="text-gray-500 leading-relaxed text-sm">
@@ -141,69 +198,6 @@ const Login = () => {
                         </Link>
                     </p>
                 </div>
-            </div>
-
-            {/* RIGHT SIDE - HERO */}
-            <div className="hidden lg:flex w-1/2 relative bg-gradient-to-br from-brand-dark to-[#0f172a] items-center justify-center overflow-hidden">
-                <MouseParallaxContainer className="w-full h-full flex items-center justify-center">
-
-                    {/* Layer 1: Background Elements (Slowest) */}
-                    <ParallaxItem strength={-5} className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full">
-                        <div className="absolute top-0 right-0 w-96 h-96 bg-brand-purple/20 rounded-full blur-[100px] mix-blend-screen"></div>
-                        <div className="absolute bottom-0 left-0 w-96 h-96 bg-brand-pink/10 rounded-full blur-[80px] mix-blend-screen"></div>
-                    </ParallaxItem>
-
-                    {/* Layer 2: Main Background Image (Static or very slow) */}
-                    {/* For minimalism, we might just use the illustration as a centered focus or subtle background. 
-                         Let's keep the illustration card as the prominent central element. */}
-                    <ParallaxItem strength={10} className="relative z-10">
-                        <div className="w-[400px] h-[500px] rounded-3xl overflow-hidden shadow-2xl relative border border-white/10 group transition-all duration-500 hover:border-brand-purple/50 hover:shadow-[0_0_30px_rgba(139,92,246,0.3)]">
-                            <img
-                                src={illustrationImg}
-                                alt="Modern Workspace"
-                                className="w-full h-full object-cover opacity-90 transition-all duration-700 group-hover:opacity-100"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-8 transition-all duration-500 group-hover:from-brand-purple/40 group-hover:via-black/30">
-                                <h3 className="text-white text-3xl font-bold mb-2">Focus on what matters</h3>
-                                <p className="text-gray-300 text-sm">Automate the busywork and unleash your creativity.</p>
-                            </div>
-                        </div>
-                    </ParallaxItem>
-
-                    {/* Layer 3: Floating Elements (Foreground, Faster) */}
-                    {/* Glass Card Top Left */}
-                    <ParallaxItem strength={25} className="top-[20%] left-[15%] z-20">
-                        <div className="w-48 bg-glass-bg border border-glass-border backdrop-blur-xl rounded-2xl p-4 shadow-xl transform -rotate-6 transition-all duration-300 hover:bg-brand-purple/20 hover:border-brand-purple/50">
-                            <div className="flex items-center space-x-3 mb-3">
-                                <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-brand-purple to-brand-blue"></div>
-                                <div className="h-2 bg-white/20 rounded w-20"></div>
-                            </div>
-                            <div className="space-y-2">
-                                <div className="h-2 bg-white/10 rounded w-full"></div>
-                                <div className="h-2 bg-white/10 rounded w-2/3"></div>
-                            </div>
-                        </div>
-                    </ParallaxItem>
-
-                    {/* Task Success Card Bottom Right */}
-                    <ParallaxItem strength={-15} className="bottom-[25%] right-[15%] z-20">
-                        <div className="w-40 bg-white p-4 rounded-2xl shadow-2xl transform rotate-6 animate-float-slow">
-                            <div className="flex items-center justify-between mb-2">
-                                <span className="text-xs font-bold text-gray-400">Task Complete</span>
-                                <div className="w-4 h-4 rounded-full bg-green-100 flex items-center justify-center text-[10px] text-green-600">✓</div>
-                            </div>
-                            <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
-                                <div className="h-full bg-green-500 w-full rounded-full"></div>
-                            </div>
-                        </div>
-                    </ParallaxItem>
-
-                    {/* Decorative Circle */}
-                    <ParallaxItem strength={40} className="top-[15%] right-[20%] z-0">
-                        <div className="w-16 h-16 rounded-full border-2 border-white/10 opacity-50"></div>
-                    </ParallaxItem>
-
-                </MouseParallaxContainer>
             </div>
         </div>
     );

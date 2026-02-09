@@ -64,7 +64,7 @@ const Register = () => {
             <div className="w-full lg:w-1/2 flex items-center justify-center p-8 lg:p-16 relative z-10 bg-white">
                 <div className="w-full max-w-md animate-slide-up">
                     <div className="mb-10">
-                        <h1 className="text-4xl lg:text-5xl font-bold text-black mb-4">Create Account 🚀</h1>
+                        <h1 className="text-4xl lg:text-5xl font-bold text-black mb-4">Create Account </h1>
                         <p className="text-gray-500 leading-relaxed text-sm">
                             Join Synq today and experience the future of chat. It's free and easy.
                         </p>
