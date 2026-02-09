@@ -11,11 +11,13 @@ export default {
                 'brand-purple': '#8b5cf6',
                 'brand-pink': '#ec4899',
                 'brand-blue': '#3b82f6',
+                'brand-cta': '#441151',
                 'glass-bg': 'rgba(255, 255, 255, 0.05)',
                 'glass-border': 'rgba(255, 255, 255, 0.1)',
             },
             fontFamily: {
                 sans: ['Inter', 'system-ui', 'sans-serif'],
+                display: ['Poppins', 'Inter', 'system-ui', 'sans-serif'],
             },
             keyframes: {
                 float: {
