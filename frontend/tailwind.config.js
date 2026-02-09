@@ -56,6 +56,9 @@ export default {
                 'blob': 'blob 7s infinite',
                 'shimmer': 'shimmer 3s linear infinite',
                 'glow': 'glow 2s ease-in-out infinite',
+            },
+            backgroundImage: {
+                'underline': "url(\"data:image/svg+xml,%3Csvg width='100%25' height='8' viewBox='0 0 100 8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 4 Q 25 0, 50 4 T 100 4' stroke='%238b5cf6' stroke-width='2' fill='none'/%3E%3C/svg%3E\")",
             }
         },
     },

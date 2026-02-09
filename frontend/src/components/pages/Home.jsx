@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../ui/Button';
+import heroImage from '../../assets/organized.jpg';
 
 const Home = () => {
+    const [email, setEmail] = useState('');
+
     const features = [
         {
             icon: (
@@ -33,28 +36,39 @@ const Home = () => {
         }
     ];
 
+    const handleSubscribe = (e) => {
+        e.preventDefault();
+        console.log('Subscribe:', email);
+    };
+
     return (
         <div className="min-h-screen bg-white">
             {/* Navigation */}
-            <nav className="px-4 md:px-8 py-6 border-b border-gray-200">
+            <nav className="px-4 md:px-8 py-6 bg-[#1a1a2e] border-b border-gray-800">
                 <div className="max-w-7xl mx-auto flex items-center justify-between">
                     <div className="flex items-center space-x-2">
-                        <div className="w-10 h-10 rounded-xl bg-brand-cta flex items-center justify-center shadow-md">
-                            <span className="text-white font-bold text-xl">S</span>
+                        <div className="w-8 h-8 rounded-lg bg-white flex items-center justify-center">
+                            <span className="text-[#1a1a2e] font-bold text-lg">S</span>
                         </div>
-                        <span className="text-2xl font-display font-bold text-gray-900">
-                            Synq<span className="inline-block w-2 h-2 rounded-full bg-brand-purple ml-0.5 mb-1"></span>
+                        <span className="text-xl font-display font-bold text-white">
+                            <span className="text-brand-purple">Synq</span><span className="inline-block w-1.5 h-1.5 rounded-full bg-brand-purple ml-0.5 mb-1"></span>
                         </span>
+                    </div>
+                    <div className="hidden md:flex items-center space-x-8 text-sm text-gray-300">
+                        <a href="#" className="hover:text-white transition-colors">Home</a>
+                        <a href="#" className="hover:text-white transition-colors">Jobs</a>
+                        <a href="#" className="hover:text-white transition-colors">Companies</a>
+                        <a href="#" className="hover:text-white transition-colors">Community</a>
                     </div>
                     <div className="flex items-center space-x-3">
                         <Link to="/login">
-                            <Button variant="ghost" className="!text-gray-700 hover:!bg-gray-100 !border-gray-300">
+                            <Button variant="ghost" className="!text-white hover:!bg-white/10 !border-white/20">
                                 Login
                             </Button>
                         </Link>
                         <Link to="/register">
-                            <Button className="!bg-brand-cta hover:!bg-[#5a1a6b] !text-white !shadow-lg hover:!shadow-xl">
-                                Get Started
+                            <Button className="!bg-white !text-[#1a1a2e] hover:!bg-gray-100 !shadow-lg">
+                                Apply Now
                             </Button>
                         </Link>
                     </div>
@@ -62,29 +76,96 @@ const Home = () => {
             </nav>
 
             {/* Hero Section */}
-            <section className="px-4 md:px-8 py-16 md:py-24">
-                <div className="max-w-7xl mx-auto text-center">
-                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-extrabold text-gray-900 mb-6 leading-tight">
-                        Communication
-                        <span className="block mt-2">
-                            <span className="bg-gradient-to-r from-brand-purple to-brand-pink bg-clip-text text-transparent">
-                                Reimagined
-                            </span>
-                            <span className="inline-block w-3 h-3 md:w-4 md:h-4 rounded-full bg-brand-purple ml-1 mb-2 md:mb-4 animate-pulse"></span>
-                        </span>
-                    </h1>
-                    <p className="text-base md:text-lg text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
-                        Connect with your team in real-time. Synq brings together messaging, collaboration, and productivity in one beautiful platform.
-                    </p>
-                    <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-                        <Link to="/register">
-                            <Button className="!bg-brand-cta hover:!bg-[#5a1a6b] !text-white !px-8 !py-4 !text-base !shadow-lg hover:!shadow-xl w-full sm:w-auto">
-                                Start Free Trial
-                            </Button>
-                        </Link>
-                        <Button variant="ghost" className="!text-gray-700 hover:!bg-gray-100 !border-gray-300 !px-8 !py-4 !text-base w-full sm:w-auto">
-                            Watch Demo
-                        </Button>
+            <section className="bg-[#1a1a2e] relative overflow-hidden">
+                <div className="max-w-7xl mx-auto">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center min-h-[600px]">
+                        {/* Left Content */}
+                        <div className="px-4 md:px-8 py-12 lg:py-20">
+                            <div className="mb-6">
+                                <span className="text-gray-400 text-sm uppercase tracking-wider">Welcome to</span>
+                                <h1 className="text-white font-display font-bold text-4xl md:text-5xl lg:text-6xl leading-tight mt-2">
+                                    Unlock Your Next
+                                    <br />
+                                    <span className="relative inline-block mt-2">
+                                        Career Move
+                                        <svg className="absolute -bottom-2 left-0 w-full" height="12" viewBox="0 0 300 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M2 10C50 2 100 2 150 6C200 10 250 8 298 6" stroke="#8b5cf6" strokeWidth="3" strokeLinecap="round" />
+                                        </svg>
+                                    </span>
+                                </h1>
+                            </div>
+
+                            <p className="text-gray-400 text-sm md:text-base leading-relaxed mb-8 max-w-lg">
+                                Explore thousands of opportunities tailored to your skills and aspirations. Connect with top employers and take the next step in your professional journey.
+                            </p>
+
+                            {/* Email Subscribe Form */}
+                            <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-3 mb-8">
+                                <div className="relative flex-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 absolute left-4 top-1/2 -translate-y-1/2 text-gray-500">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+                                    </svg>
+                                    <input
+                                        type="email"
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
+                                        placeholder="Your email address"
+                                        className="w-full bg-white/10 border border-white/20 rounded-full py-3 pl-12 pr-4 text-white text-sm placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-purple focus:border-transparent transition-all"
+                                    />
+                                </div>
+                                <Button type="submit" className="!bg-brand-cta hover:!bg-[#5a1a6b] !text-white !px-8 !py-3 !rounded-full whitespace-nowrap">
+                                    Subscribe
+                                </Button>
+                            </form>
+
+                            {/* User Avatars & Rating */}
+                            <div className="flex items-center space-x-4">
+                                <div className="flex -space-x-2">
+                                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-400 to-pink-400 border-2 border-[#1a1a2e] flex items-center justify-center text-white text-xs font-bold">
+                                        A
+                                    </div>
+                                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-cyan-400 border-2 border-[#1a1a2e] flex items-center justify-center text-white text-xs font-bold">
+                                        B
+                                    </div>
+                                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-orange-400 to-red-400 border-2 border-[#1a1a2e] flex items-center justify-center text-white text-xs font-bold">
+                                        C
+                                    </div>
+                                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-400 to-emerald-400 border-2 border-[#1a1a2e] flex items-center justify-center text-white text-xs font-bold">
+                                        D
+                                    </div>
+                                </div>
+                                <div className="flex items-center space-x-1">
+                                    {[...Array(5)].map((_, i) => (
+                                        <svg key={i} className="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                            <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                                        </svg>
+                                    ))}
+                                    <span className="text-gray-400 text-sm ml-2">4.9/5</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Right Image */}
+                        <div className="relative h-full min-h-[400px] lg:min-h-[600px]">
+                            <div className="absolute inset-0 lg:inset-y-0 lg:right-0">
+                                <img
+                                    src={heroImage}
+                                    alt="Professional workspace"
+                                    className="w-full h-full object-cover"
+                                />
+                                {/* Floating Icons */}
+                                <div className="absolute top-20 right-10 w-12 h-12 bg-white/10 backdrop-blur-md rounded-lg flex items-center justify-center animate-float-slow">
+                                    <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                                    </svg>
+                                </div>
+                                <div className="absolute bottom-32 left-10 w-12 h-12 bg-white/10 backdrop-blur-md rounded-lg flex items-center justify-center animate-float-medium">
+                                    <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -93,7 +174,7 @@ const Home = () => {
             <section className="px-4 md:px-8 py-16 md:py-20 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <h2 className="text-3xl md:text-5xl font-display font-bold text-gray-900 text-center mb-4">
-                        Why Choose <span className="font-display">Synq<span className="inline-block w-2 h-2 rounded-full bg-brand-purple ml-0.5 mb-1"></span></span>
+                        Why Choose <span className="text-brand-purple font-display">Synq<span className="inline-block w-2 h-2 rounded-full bg-brand-purple ml-0.5 mb-1"></span></span>
                     </h2>
                     <p className="text-center text-gray-600 mb-12 text-sm md:text-base max-w-2xl mx-auto">
                         Everything you need to communicate and collaborate effectively with your team.
@@ -133,9 +214,9 @@ const Home = () => {
             </section>
 
             {/* Footer */}
-            <footer className="px-4 md:px-8 py-8 border-t border-gray-200">
-                <div className="max-w-7xl mx-auto text-center text-gray-500 text-sm">
-                    <p>&copy; 2024 <span className="font-display font-semibold">Synq<span className="inline-block w-1.5 h-1.5 rounded-full bg-brand-purple ml-0.5"></span></span> All rights reserved.</p>
+            <footer className="px-4 md:px-8 py-8 border-t border-gray-200 bg-[#1a1a2e]">
+                <div className="max-w-7xl mx-auto text-center text-gray-400 text-sm">
+                    <p>&copy; 2024 <span className="font-display font-semibold text-brand-purple">Synq<span className="inline-block w-1.5 h-1.5 rounded-full bg-brand-purple ml-0.5"></span></span> All rights reserved.</p>
                 </div>
             </footer>
         </div>
