@@ -35,6 +35,14 @@ export default {
                     '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
                     '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
                     '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                },
+                shimmer: {
+                    '0%': { backgroundPosition: '-200% center' },
+                    '100%': { backgroundPosition: '200% center' },
+                },
+                glow: {
+                    '0%, 100%': { opacity: '1', filter: 'brightness(1)' },
+                    '50%': { opacity: '0.8', filter: 'brightness(1.2)' },
                 }
             },
             animation: {
@@ -44,6 +52,8 @@ export default {
                 'slide-up': 'slideUp 0.8s ease-out forwards',
                 'fade-in': 'fadeIn 1s ease-out forwards',
                 'blob': 'blob 7s infinite',
+                'shimmer': 'shimmer 3s linear infinite',
+                'glow': 'glow 2s ease-in-out infinite',
             }
         },
     },

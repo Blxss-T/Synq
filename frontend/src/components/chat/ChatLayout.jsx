@@ -72,7 +72,7 @@ const ChatLayout = () => {
                 <div className="flex-1 flex flex-col bg-brand-dark/40 backdrop-blur-md relative">
                     {/* Chat Header */}
                     <div className="h-16 border-b border-glass-border flex items-center px-4 md:px-6 bg-glass-bg justify-between">
-                        <div className="flex items-center space-x-3">
+                        <div className="flex items-center space-x-3 md:space-x-4">
                             {/* Mobile Menu Toggle */}
                             <button
                                 onClick={() => setSidebarOpen(true)}
@@ -82,6 +82,21 @@ const ChatLayout = () => {
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                                 </svg>
                             </button>
+
+                            {/* App Branding - Hidden on mobile when in chat */}
+                            <div className="hidden md:flex items-center space-x-2 mr-4 group cursor-pointer">
+                                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-purple to-brand-pink flex items-center justify-center shadow-lg group-hover:shadow-[0_0_20px_rgba(139,92,246,0.8)] transition-all duration-300 group-hover:scale-110 animate-glow">
+                                    <span className="text-white font-bold text-lg">S</span>
+                                </div>
+                                <span className="text-xl font-bold relative">
+                                    <span className="bg-gradient-to-r from-brand-purple via-brand-pink to-brand-purple bg-clip-text text-transparent bg-[length:200%_auto] animate-shimmer">
+                                        Synq
+                                    </span>
+                                </span>
+                            </div>
+
+                            {/* Divider */}
+                            <div className="hidden md:block h-8 w-px bg-glass-border"></div>
 
                             <h2 className="text-lg font-bold text-white flex items-center">
                                 <span className="w-2 h-2 rounded-full bg-green-500 mr-2 animate-pulse"></span>
