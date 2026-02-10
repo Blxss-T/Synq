@@ -95,12 +95,12 @@ const Home = () => {
                                 </h1>
                             </div>
 
-                            <p className="text-gray-400 text-sm md:text-base leading-relaxed mb-8 max-w-lg">
+                            <p className="text-gray-400 text-sm leading-relaxed mb-8 max-w-md">
                                 Explore thousands of opportunities tailored to your skills and aspirations. Connect with top employers and take the next step in your professional journey.
                             </p>
 
                             {/* Email Subscribe Form */}
-                            <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-3 mb-8">
+                            <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-3 mb-8 max-w-lg">
                                 <div className="relative flex-1">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 absolute left-4 top-1/2 -translate-y-1/2 text-gray-500">
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
@@ -110,29 +110,21 @@ const Home = () => {
                                         value={email}
                                         onChange={(e) => setEmail(e.target.value)}
                                         placeholder="Your email address"
-                                        className="w-full bg-white/10 border border-white/20 rounded-full py-3 pl-12 pr-4 text-white text-sm placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-purple focus:border-transparent transition-all"
+                                        className="w-full bg-[#3a3a4f] border-0 rounded-lg py-3.5 pl-12 pr-4 text-white text-sm placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-brand-purple/30 transition-all"
                                     />
                                 </div>
-                                <Button type="submit" className="!bg-brand-cta hover:!bg-[#5a1a6b] !text-white !px-8 !py-3 !rounded-full whitespace-nowrap">
+                                <Button type="submit" className="!bg-brand-purple hover:!bg-brand-purple/90 !text-white !px-8 !py-3.5 !rounded-lg whitespace-nowrap !shadow-none">
                                     Subscribe
                                 </Button>
                             </form>
 
                             {/* User Avatars & Rating */}
                             <div className="flex items-center space-x-4">
-                                <div className="flex -space-x-2">
-                                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-400 to-pink-400 border-2 border-[#1a1a2e] flex items-center justify-center text-white text-xs font-bold">
-                                        A
-                                    </div>
-                                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-cyan-400 border-2 border-[#1a1a2e] flex items-center justify-center text-white text-xs font-bold">
-                                        B
-                                    </div>
-                                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-orange-400 to-red-400 border-2 border-[#1a1a2e] flex items-center justify-center text-white text-xs font-bold">
-                                        C
-                                    </div>
-                                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-400 to-emerald-400 border-2 border-[#1a1a2e] flex items-center justify-center text-white text-xs font-bold">
-                                        D
-                                    </div>
+                                <div className="flex -space-x-3">
+                                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-400 to-pink-400 border-2 border-[#1a1a2e]"></div>
+                                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-cyan-400 border-2 border-[#1a1a2e]"></div>
+                                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-orange-400 to-red-400 border-2 border-[#1a1a2e]"></div>
+                                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-400 to-emerald-400 border-2 border-[#1a1a2e]"></div>
                                 </div>
                                 <div className="flex items-center space-x-1">
                                     {[...Array(5)].map((_, i) => (
@@ -140,30 +132,34 @@ const Home = () => {
                                             <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
                                         </svg>
                                     ))}
-                                    <span className="text-gray-400 text-sm ml-2">4.9/5</span>
+                                    <span className="text-gray-400 text-xs ml-2 font-medium">4.9/5</span>
                                 </div>
                             </div>
                         </div>
 
                         {/* Right Image */}
-                        <div className="relative h-full min-h-[400px] lg:min-h-[600px]">
-                            <div className="absolute inset-0 lg:inset-y-0 lg:right-0">
-                                <img
-                                    src={heroImage}
-                                    alt="Professional workspace"
-                                    className="w-full h-full object-cover"
-                                />
-                                {/* Floating Icons */}
-                                <div className="absolute top-20 right-10 w-12 h-12 bg-white/10 backdrop-blur-md rounded-lg flex items-center justify-center animate-float-slow">
-                                    <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                                    </svg>
-                                </div>
-                                <div className="absolute bottom-32 left-10 w-12 h-12 bg-white/10 backdrop-blur-md rounded-lg flex items-center justify-center animate-float-medium">
-                                    <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                                    </svg>
-                                </div>
+                        <div className="relative h-full min-h-[500px] lg:min-h-[650px]">
+                            <img
+                                src={heroImage}
+                                alt="Professional workspace"
+                                className="w-full h-full object-cover"
+                            />
+                            {/* Floating Decorative Elements */}
+                            <div className="absolute top-16 right-12 w-16 h-16 opacity-20">
+                                <svg viewBox="0 0 100 100" className="text-white">
+                                    <circle cx="50" cy="50" r="40" stroke="currentColor" strokeWidth="2" fill="none" />
+                                    <path d="M50 20 L50 80 M20 50 L80 50" stroke="currentColor" strokeWidth="2" />
+                                </svg>
+                            </div>
+                            <div className="absolute top-32 left-8 w-12 h-12 opacity-20">
+                                <svg viewBox="0 0 100 100" className="text-white">
+                                    <path d="M50 10 L90 90 L10 90 Z" stroke="currentColor" strokeWidth="2" fill="none" />
+                                </svg>
+                            </div>
+                            <div className="absolute bottom-24 right-20 w-10 h-10 opacity-20">
+                                <svg viewBox="0 0 100 100" className="text-white">
+                                    <rect x="10" y="10" width="80" height="80" stroke="currentColor" strokeWidth="2" fill="none" />
+                                </svg>
                             </div>
                         </div>
                     </div>
